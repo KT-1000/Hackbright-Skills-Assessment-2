@@ -2,13 +2,13 @@ What are the three main design advantages that object orientation can provide?
 
 Explain each concept.
 
-Abstraction
-Encapsulation
-Polymorphism
+Abstraction - Let Python worry about it, you're a lazy programmer!
+Encapsulation - Keep all the things together.
+Polymorphism - It doesn't have to be the exact same thing, it can still share behaviors.
 
 What is a class?
 
-A class is the idea of an object
+A class is the idea of an object.
 
 What is an instance attribute?
 
@@ -29,4 +29,7 @@ and has crossed eyes.
 
 How is a class attribute different than an instance attribute? Give an example of when you might use each.
 
-A class attribute is something that applies to that class. For example 
+A class attribute is something that applies to that class. For example, if there's a
+Cat class, the class attributes would be properties all cats share and the
+actual instance of a Cat could have additional instance attributes or instance 
+attributes that you want to take precedence over Cat class attributes.
