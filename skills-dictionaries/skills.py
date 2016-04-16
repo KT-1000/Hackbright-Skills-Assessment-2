@@ -31,14 +31,18 @@ def without_duplicates(words):
         >>> sorted(without_duplicates([111111, 2, 33333, 2]))
         [2, 33333, 111111]
     """
-    # make a set
-    # if len(list) > 0
     # it's not an empty list so do stuff to it
-    # for each item in the list
-    # try to toss it in a set
-    # after loop, convert set to list to return
-    # it is an empty list so return an empty string
-    return []
+    if len(words) > 0:
+        # make an empty set to store non-duplicate words
+        words_set = set([])
+        for item in words:
+            words_set.add(item)
+        # convert back to list to sort
+        words = list(words_set)
+        return words
+    # it is an empty list so return it
+    else:
+        return []
 
 
 def find_unique_common_items(items1, items2):
