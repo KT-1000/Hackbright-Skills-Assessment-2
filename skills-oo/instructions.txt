@@ -1,0 +1,110 @@
+Directions: Make Python classes that could store the each of the following three 
+pieces of data. Use the dictionaries below as examples to guide you in creating 
+class definitions for the following objects. Define an __init__ method to allow 
+callers of this class to provide initial values for each attribute.
+1.Student
+
+Students can have first and last names and addresses. Here are two example students. 
+Write a class that can store data like this:
+
+{'first_name': 'Jasmine',
+ 'last_name': 'Debugger',
+ 'address': '0101 Computer Street'}
+
+{'first_name': 'Jaqui',
+ 'last_name': 'Console',
+ 'address': '888 Binary Ave'}
+
+ 2. Question
+
+Questions are a question & a correct answer; here are two example questions. 
+Write a class that could store data like this:
+
+{'question': 'What is the capital of Alberta?',
+ 'correct_answer': 'Edmonton'}
+
+{'question': 'Who is the author of Python?',
+ 'correct_answer': 'Guido Van Rossum'}
+
+ 3.Exam
+
+Notice that an Exam should have an attribute called questions. Simply initialize the questions attribute as an empty list in the body __init__ function. We’ll deal with adding questions to the exam later on in this assignment. Your __init__ function should take a name for the exam as a parameter.
+
+A Note on Attributes
+Though we’ve mainly seen attributes that are strings or integers, remember: attributes can also be lists, and many other data types. In the case of our questions attribute, we’ll have a list of Question objects.
+
+For example, here are two exams. Make a class that could store data like this:
+
+{'name':'Midterm',
+ 'questions': [
+
+    {'question':'What is the capital of Alberta?',
+     'correct_answer': 'Edmonton'},
+
+    {'question': 'Who is the author of Python?',
+     'correct_answer': 'Guido Van Rossum' }
+
+  ]
+}
+
+{'name':'Final',
+ 'questions': [
+
+    {'question':"Who is Ubermelon's competition?",
+     'correct_answer': 'Sqysh'},
+
+    {'question': "What is Balloonicorn's favorite color?",
+     'correct_answer': 'Sparkles'}
+
+  ]
+}
+
+
+Methods
+1. Add a method to the Exam class which takes a question and a correct_answer as 
+parameters, makes a Question from those, and adds it to the exam’s list of questions.
+
+For example
+
+$ python -i skills.py
+>>> exam = Exam('midterm')
+>>> exam.add_question(
+...     'What is the method for adding an element to a set?',
+...     '.add()')
+
+2.Add a method to the Question class that prints the question to the console and 
+prompts the user for an answer. It should return True or False depending on whether 
+the correct answer matches the user’s answer.
+
+For example
+
+$ python -i skills.py
+>>> question = Question(
+...     'What is the method for adding an element to a set?',
+...     '.add()')
+>>> question.ask_and_evaluate()
+
+3. Add a method to the Exam class which administers all of the exam’s questions, 
+and returns the user’s score at the end.
+
+So, building on our code from problem 2, here’s how the Exam class should work.
+
+$ python -i skills.py
+>>> exam = Exam('midterm')
+>>> exam.add_question(
+...     'What is the method for adding an element to a set?',
+...     '.add()')
+>>> exam.administer()
+What is the method for adding an element to a set? > .add()
+1.0
+What is the method for adding an element to a set? > .add()
+True
+
+Exam
+1. Write a function, take_test, that takes an exam and a student as parameters, administers the exam, and assigns the score to the student instance as a new attribute called score.
+2. Write a function, example, which does the following:
+Creates an exam
+Adds a few questions to the exam
+These should be part of the function; no need to prompt the user for questions.
+Creates a student
+Administers the test for that student
