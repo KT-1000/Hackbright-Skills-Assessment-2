@@ -21,6 +21,8 @@ class Question(object):
 class Exam(object):
 
     def __init__(self, name, questions=[]):
+        self.name = name
+        self.question = questions
 
     def add_question(self):
 
