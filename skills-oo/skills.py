@@ -44,9 +44,9 @@ class Exam(object):
 
 
 def take_test(exam, student):
-    # administer the exam to the student
-    exam.administer(student)
+    # administer the exam to the student    
     # assign score to student as new attribute score
+    student.score = exam.administer()
 
 
 def example():
@@ -62,3 +62,4 @@ def example():
     katie = Student('Katie', 'Simmons', '419 Thornton')
     # administers test to that student
     take_test(new_exam, katie)
+    
