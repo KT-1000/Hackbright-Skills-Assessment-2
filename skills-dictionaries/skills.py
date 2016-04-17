@@ -3,6 +3,7 @@
 **IMPORTANT:** these problems are meant to be solved using
 dictionaries and sets.
 """
+import itertools
 
 
 def without_duplicates(words):
@@ -45,6 +46,7 @@ def without_duplicates(words):
         return []
 
 
+# THIS FUNCTION DOESN'T ACTUALLY PASS ALL TESTS
 def find_unique_common_items(items1, items2):
     """Produce the set of *unique* common items in two lists.
 
@@ -71,11 +73,16 @@ def find_unique_common_items(items1, items2):
         >>> sorted(find_unique_common_items(["2", "1", 2], [2, 1]))
         [2]
     """
-    # use iteritems?
+    # convert two lists to sets and get intersection
+    # gives us set of unique items
+    unique_items = set(items1) & set(items2)
+    # convert unique item set to list for correct return type+
+    uniques = list(unique_items)
 
-    return []
+    return uniques
 
 
+# TOO LENGTHY, SHOULD BE DONE MORE EFFICIENTLY
 def count_words(phrase):
     """Count unique words in a string.
 
@@ -100,14 +107,20 @@ def count_words(phrase):
         >>> print_dict(count_words("Porcupine see, porcupine do."))
         {'Porcupine': 1, 'do.': 1, 'porcupine': 1, 'see,': 1}
     """
+    print_dict = {}
     # this one is a bit like the markov chain
     # split input string on spaces
+    words = phrase.split(' ')
     # for the word in that list
-    # if it's not in the output dict
-    # add it as key with counter value 1
-    # otherwise increment counter value
+    for word in words:
+        # word is a key in the print_dict, so increment its value by one
+        if word in print_dict:
+            print_dict[word] += 1
+        # word isn't a key in print_dict, so add it with the value one
+        else:
+            print_dict[word] = 1
 
-    return {}
+    return print_dict
 
 
 def translate_to_pirate_talk(phrase):
@@ -148,9 +161,33 @@ def translate_to_pirate_talk(phrase):
         >>> translate_to_pirate_talk("my student is not a man!")
         'me swabbie be not a man!'
     """
-    # pirate is key, english is value? or vice versa?
-    # Then unpack to get sentence?
-    return ""
+    # create english to pirate dictionary dictionary
+    english_to_pirate = {'sir': 'matey',
+        'hotel': 'fleabag inn',
+        'student': 'swabbie',
+        'man': 'matey',
+        'professor': 'foul blaggart',
+        'restaurant': 'galley',
+        'your': 'yer',
+        'excuse': 'arr',
+        'students': 'swabbies',
+        'are': 'be',
+        'restroom': 'head',
+        'my': 'me',
+        'is': 'be'}
+    pirate_phrase = []
+    # break up the phrase by word by splitting on space
+    words = phrase.split(" ")
+    for word in words:
+        # if word's in the dictionary
+        if word in english_to_pirate:
+            pirate_phrase.append(english_to_pirate[word] + "")
+        else:
+            pirate_phrase.append(word + "")
+
+    pirate_phrase = ' '.join(pirate_phrase)
+
+    return pirate_phrase
 
 
 def sort_by_word_length(words):
@@ -166,7 +203,9 @@ def sort_by_word_length(words):
         >>> sort_by_word_length(["ok", "an", "apple", "a", "day"])
         [(1, ['a']), (2, ['ok', 'an']), (3, ['day']), (5, ['apple'])]
     """
-    # create a dict and unpack to tuples?
+    # create a dict and use .items() to unpack to tuples
+    # Count letters in words
+    # word is key and num letters is value
     return []
 
 
@@ -196,8 +235,16 @@ def get_sum_zero_pairs(numbers):
         >>> sort_pairs( get_sum_zero_pairs([1, 3, -1, 1, 1, 0]) )
         [[-1, 1], [0, 0]]
     """
-    #
-    return []
+    zero_pairs = []
+    # get list of all pair combinations
+    pairs = [list(pair) for pair in itertools.combinations(numbers, 2)]
+    for pair in pairs:
+        # only want unique pairs that add up to 0 in final list
+        if pair not in zero_pairs and sum(pair) == 0:
+            zero_pairs.append(pair)
+    #TODO account for any zero to be added to itself and included in the final list of pairs
+
+    return zero_pairs
 
 
 def kids_game(names):
@@ -238,7 +285,10 @@ def kids_game(names):
     good solutions here will definitely require a dictionary.
     """
     # dict for quick lookup
-    # something like markov chains?
+    # first word
+    # last letter of first word
+    # next word starting with that letter
+    # if no other words starting with that letter, return wod list
 
     return []
 
