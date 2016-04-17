@@ -3,7 +3,8 @@ class Student(object):
     def __init__(self, first_name, last_name, address):
         self.first_name = first_name
         self.last_name = last_name
-        self.address = address  
+        self.address = address
+
 
 class Question(object):
 
@@ -16,7 +17,7 @@ class Question(object):
         if answer = correct_answer:
             print True
         else:
-            print False  
+            print False
 
 class Exam(object):
 
@@ -24,7 +25,8 @@ class Exam(object):
         self.name = name
         self.question = questions
 
-    def add_question(self):
+    def add_question(self, question, correct_answer):
+        
 
     def administer(self):
         # for question in Exam
