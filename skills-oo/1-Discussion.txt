@@ -8,7 +8,11 @@ Polymorphism - It doesn't have to be the exact same thing, it can still share be
 
 What is a class?
 
-A class is the idea of an object.
+A class is the idea of an object. A class called Cat isn't actually a physical
+feline that will wake you up at 6:00AM by kneading its stupid paws and meowing
+for food. It's more like a blueprint for Python to know what properties a member
+of the cat class has and does(for example, breed, diet type, the ability
+to meow). 
 
 What is an instance attribute?
 
@@ -31,5 +35,10 @@ How is a class attribute different than an instance attribute? Give an example o
 
 A class attribute is something that applies to that class. For example, if there's a
 Cat class, the class attributes would be properties all cats share and the
-actual instance of a Cat could have additional instance attributes or instance 
-attributes that you want to take precedence over Cat class attributes.
+actual instance of a Cat could have additional instance attributes, or instance 
+attributes that you want to take precedence over Cat class attributes. The Cat class
+attributes might be a species of felis catus, a carnivorous diet, or any other attributes
+that all cats share. An instance of the Cat class with the name Turtle could also
+have a breed of Siamese and fur texture of very soft, which not all members of the
+Cat class would have. Another instance of cat might be a Sphinx breed with no fur,
+or a Maine Coone with long fluffy fur - or a lion cut.
