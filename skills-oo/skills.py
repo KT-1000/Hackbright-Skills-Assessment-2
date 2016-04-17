@@ -12,12 +12,13 @@ class Question(object):
         self.question = question
         self.correct_answer = correct_answer
 
-    def ask_and_evaluate(self): 
-        answer = raw_input(question)
-        if answer = correct_answer:
+    def ask_and_evaluate(self):
+        answer = raw_input(self.question)
+        if answer == self.correct_answer:
             print True
         else:
             print False
+
 
 class Exam(object):
 
@@ -27,7 +28,7 @@ class Exam(object):
 
     def add_question(self, question, correct_answer):
         question = Question(question, correct_answer)
-        questions.append(question)    
+        questions.append(question)   
 
     def administer(self):
         # for question in Exam
