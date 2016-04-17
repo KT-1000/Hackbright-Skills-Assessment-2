@@ -18,10 +18,9 @@ class Question(object):
         else:
             print False  
 
-class Exam(self, name):
+class Exam(object):
 
-    def __init__(self):
-        questions = []
+    def __init__(self, name, questions=[]):
 
     def add_question(self):
 
