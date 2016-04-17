@@ -11,10 +11,15 @@ class Question(object):
         self.question = question
         self.correct_answer = correct_answer
 
-    def ask_and_evaluate():      
+    def ask_and_evaluate(self): 
+        answer = raw_input(question)
+        if answer = correct_answer:
+            print True
+        else:
+            print False  
 
-class Exam(self, question, correct_answer):
-    
+class Exam(self, name):
+
     def __init__(self):
         questions = []
 
