@@ -26,7 +26,8 @@ class Exam(object):
         self.question = questions
 
     def add_question(self, question, correct_answer):
-        question = Question(question, correct_answer)       
+        question = Question(question, correct_answer)
+        questions.append(question)    
 
     def administer(self):
         # for question in Exam
