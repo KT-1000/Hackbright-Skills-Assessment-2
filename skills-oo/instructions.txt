@@ -2,6 +2,7 @@ Directions: Make Python classes that could store the each of the following three
 pieces of data. Use the dictionaries below as examples to guide you in creating 
 class definitions for the following objects. Define an __init__ method to allow 
 callers of this class to provide initial values for each attribute.
+
 1.Student
 
 Students can have first and last names and addresses. Here are two example students. 
@@ -108,3 +109,10 @@ Adds a few questions to the exam
 These should be part of the function; no need to prompt the user for questions.
 Creates a student
 Administers the test for that student
+
+####################################################################
+A “quiz” is like an exam — it’s a set of questions that students are prompted to answer. However, whereas exams are given a percentage score, quizzes are pass/fail: if you answered at least half of the questions correct, you pass the quiz. When you call the administer method on a quiz, it should only return True if you passed or False if you failed.
+
+Think about we could solve this requirement: we have an Exam class and we want to have a Quiz class that is similar.
+
+Write code to solve this problem. Incorporate as many of the “design” parts of the class lectures as you feel comfortable with.
