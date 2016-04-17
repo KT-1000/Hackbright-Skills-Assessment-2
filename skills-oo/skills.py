@@ -15,9 +15,9 @@ class Question(object):
     def ask_and_evaluate(self):
         answer = raw_input(self.question)
         if answer == self.correct_answer:
-            print True
+            return True
         else:
-            print False
+            return False
 
 
 class Exam(object):
@@ -28,9 +28,37 @@ class Exam(object):
 
     def add_question(self, question, correct_answer):
         question = Question(question, correct_answer)
-        questions.append(question)   
+        questions.append(question)
 
     def administer(self):
-        # for question in Exam
-        # ask_and_evaluate
+        # keep track of score
+        score = 0
+        # iterate through question in questions list
+        for question in self.questions:
+            # provide the question to the student and see if response is correct
+            if ask_and_evaluate(question) == True:
+                # answer is right, increment score
+                score += 1.0
+
         return score
+
+
+def take_test(exam, student):
+    # administer the exam to the student
+    exam.administer(student)
+    # assign score to student as new attribute score
+
+
+def example():
+    # create exam
+    # add a few questions to exam
+    new_exam = Exam('skills assessment', 
+        ["Who is the derpy cat?", "Turtle",
+        "Which cat is talkative?", "Mini",
+        "How do we decide which one we love more?", "We don't"
+        ]
+        )
+    # creates student
+    katie = Student('Katie', 'Simmons', '419 Thornton')
+    # administers test to that student
+    take_test(new_exam, katie)
