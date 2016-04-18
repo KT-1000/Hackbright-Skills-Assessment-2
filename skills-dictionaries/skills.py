@@ -218,9 +218,12 @@ def sort_by_word_length(words):
         else:
             lengths[word_len] = [word]
 
-    return lengths
+    word_lengths = sorted(lengths.items())
+
+    return word_lengths
 
 
+# DOES NOT PASS ALL TESTS
 def get_sum_zero_pairs(numbers):
     """Given list of numbers, return list of pair summing to 0.
 
@@ -255,7 +258,7 @@ def get_sum_zero_pairs(numbers):
         if pair not in zero_pairs and sum(pair) == 0:
             zero_pairs.append(pair)
     #TODO account for any zero to be added to itself and included in the final list of pairs
-
+    #TODO eliminate duplicate pairs
     return zero_pairs
 
 
@@ -296,13 +299,21 @@ def kids_game(names):
     a dictionary (with the super-fast lookup they provide) can help;
     good solutions here will definitely require a dictionary.
     """
-    # dict for quick lookup
-    # first word
-    # last letter of first word
-    # next word starting with that letter
-    # if no other words starting with that letter, return wod list
+    first_word = names[0]
+    # key is last character in word, value is list of words with that last letter
+    chains = {}
+    for name in names:
+        first_letter = name[0]
+        # key exists, append name to value list
+        if first_letter in chains:
+            chains[first_letter].append(name)
+        # key doesn't exist, so create dict that key and a list value of the name
+        else:
+            chains[first_letter] = [name]
 
-    return []
+    # if no other words starting with that letter, return word list
+
+    return chains
 
 
 #####################################################################
