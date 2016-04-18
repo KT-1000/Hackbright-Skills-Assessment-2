@@ -24,11 +24,11 @@ class Exam(object):
 
     def __init__(self, name, questions=[]):
         self.name = name
-        self.question = questions
+        self.questions = questions
 
     def add_question(self, question, correct_answer):
-        question = Question(question, correct_answer)
-        self.question.append(question)
+        new_question = Question(question, correct_answer)
+        self.questions.append(new_question)
 
     def administer(self):
         # keep track of score
@@ -36,7 +36,7 @@ class Exam(object):
         # iterate through question in questions list
         for question in self.questions:
             # provide the question to the student and see if response is correct
-            if ask_and_evaluate(question) == True:
+            if question.ask_and_evaluate():
                 # answer is right, increment score
                 score += 1.0
 
@@ -48,15 +48,18 @@ def take_test(exam, student):
     # assign score to student as new attribute score
     student.score = exam.administer()
 
+
 def example():
     # create exam
     # add a few questions to exam
     new_exam = Exam("skills assessment")
-    new_exam.add_question("Which cat is derpy?", "Turtle")
+    new_exam.add_question("Which cat is derpy? ", "Turtle")
+    new_exam.add_question("Which cat is talkative? ", "Mini")
+    new_exam.add_question("Who do we love more? ", "We love them both!")
     # creates student
     katie = Student('Katie', 'Simmons', '419 Thornton')
     # administers test to that student
-    take_test(new_exam, katie)
-    print str(katie.score)
+    new_score = take_test(new_exam, katie)
+    print new_score
 
 example()
