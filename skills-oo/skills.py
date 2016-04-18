@@ -48,18 +48,15 @@ def take_test(exam, student):
     # assign score to student as new attribute score
     student.score = exam.administer()
 
-
 def example():
     # create exam
     # add a few questions to exam
-    new_exam = Exam('skills assessment', 
-        ["Who is the derpy cat?", "Turtle",
-        "Which cat is talkative?", "Mini",
-        "How do we decide which one we love more?", "We don't"
-        ]
-        )
+    new_exam = Exam("skills assessment")
+    new_exam.add_question("Which cat is derpy?", "Turtle")
     # creates student
     katie = Student('Katie', 'Simmons', '419 Thornton')
     # administers test to that student
     take_test(new_exam, katie)
-    
+    print katie.score
+
+example()
