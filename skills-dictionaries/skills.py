@@ -46,7 +46,7 @@ def without_duplicates(words):
         return []
 
 
-# THIS FUNCTION DOESN'T ACTUALLY PASS ALL TESTS
+# DOESN'T PASS ALL TESTS
 def find_unique_common_items(items1, items2):
     """Produce the set of *unique* common items in two lists.
 
@@ -223,7 +223,7 @@ def sort_by_word_length(words):
     return word_lengths
 
 
-# DOES NOT PASS ALL TESTS
+# DOES NOT WORK
 def get_sum_zero_pairs(numbers):
     """Given list of numbers, return list of pair summing to 0.
 
@@ -261,7 +261,7 @@ def get_sum_zero_pairs(numbers):
     #TODO eliminate duplicate pairs
     return zero_pairs
 
-
+# DOES NOT WORK
 def kids_game(names):
     """Play a kids' word chain game.
 
@@ -311,11 +311,15 @@ def kids_game(names):
         # key doesn't exist, so create dict that key and a list value of the name
         else:
             first_letter_words[first_letter] = [name]
+    # the list to return
+    words = []
     # start with first word in the input list
     cur_word = first_word
+    if cur_word[-1] in first_letter_words:
+        words.append(first_letter_words[cur_word[-1]])
     # if no other words starting with that letter, return word list
-
-    return first_letter_words
+    else:
+        return words
 
 
 #####################################################################
