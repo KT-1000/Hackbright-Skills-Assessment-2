@@ -1,5 +1,5 @@
 class Student(object):
-
+    """Creates a Student object with first_name, last_name and address"""
     def __init__(self, first_name, last_name, address):
         self.first_name = first_name
         self.last_name = last_name
@@ -7,7 +7,7 @@ class Student(object):
 
 
 class Question(object):
-
+    """Creates Question object with an ask_and_evaluate method"""
     def __init__(self, question, correct_answer):
         self.question = question
         self.correct_answer = correct_answer
@@ -21,13 +21,15 @@ class Question(object):
 
 
 class Exam(object):
-
+    """Creates Exam object with a name and a list of questions"""
     def __init__(self, name, questions=[]):
         self.name = name
         self.questions = questions
 
     def add_question(self, question, correct_answer):
+        # create instance of Question class
         new_question = Question(question, correct_answer)
+        # append the new question to the questions list
         self.questions.append(new_question)
 
     def administer(self):
@@ -43,13 +45,31 @@ class Exam(object):
         return score
 
 
+class Quiz(Exam):
+    """Creates Quiz class, subclass of Exam. Overrides Exam's administer method"""
+    def administer(self):
+        # starting, the student hasn't passed the test yet
+        passed = False
+        # highest score possible is the number of test questions
+        max_score = len(self.questions)
+        # administer the quiz to get the score
+        score = Exam.administer(self)
+        # passing is 50% or higher
+        if score / max_score >= 0.5:
+            passed = True
+
+        return passed
+
+
 def take_test(exam, student):
-    # administer the exam to the student    
+    """Takes an exam and a student, binds student score to the return of exam's administer method"""
+    # administer the exam to the student
     # assign score to student as new attribute score
     student.score = exam.administer()
 
 
 def example():
+    """Test case for our classes."""
     # create exam
     # add a few questions to exam
     new_exam = Exam("skills assessment")
@@ -59,8 +79,7 @@ def example():
     # creates student
     katie = Student('Katie', 'Simmons', '419 Thornton')
     # administers test to that student
-    new_score = take_test(new_exam, katie)
-
-    return new_score
+    take_test(new_exam, katie)
+    print katie.score
 
 example()
