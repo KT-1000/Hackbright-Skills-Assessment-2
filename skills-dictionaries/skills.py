@@ -300,20 +300,22 @@ def kids_game(names):
     good solutions here will definitely require a dictionary.
     """
     first_word = names[0]
-    # key is last character in word, value is list of words with that last letter
-    chains = {}
+    # key is first letter in word, value is list of words starting with that letter
+    first_letter_words = {}
+
     for name in names:
         first_letter = name[0]
         # key exists, append name to value list
-        if first_letter in chains:
-            chains[first_letter].append(name)
+        if first_letter in first_letter_words:
+            first_letter_words[first_letter].append(name)
         # key doesn't exist, so create dict that key and a list value of the name
         else:
-            chains[first_letter] = [name]
-
+            first_letter_words[first_letter] = [name]
+    # start with first word in the input list
+    cur_word = first_word
     # if no other words starting with that letter, return word list
 
-    return chains
+    return first_letter_words
 
 
 #####################################################################
