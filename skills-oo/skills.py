@@ -60,6 +60,7 @@ def example():
     katie = Student('Katie', 'Simmons', '419 Thornton')
     # administers test to that student
     new_score = take_test(new_exam, katie)
-    print new_score
+
+    return new_score
 
 example()
