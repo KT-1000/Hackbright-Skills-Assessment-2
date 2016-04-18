@@ -182,6 +182,7 @@ def translate_to_pirate_talk(phrase):
         # if word's in the dictionary
         if word in english_to_pirate:
             pirate_phrase.append(english_to_pirate[word] + "")
+        # if word doesn't have pirate translation, just append it to phrase
         else:
             pirate_phrase.append(word + "")
 
@@ -203,10 +204,21 @@ def sort_by_word_length(words):
         >>> sort_by_word_length(["ok", "an", "apple", "a", "day"])
         [(1, ['a']), (2, ['ok', 'an']), (3, ['day']), (5, ['apple'])]
     """
-    # create a dict and use .items() to unpack to tuples
+    # create a dict w  num as key and use .items() to unpack to tuples
+    lengths = {}
     # Count letters in words
-    # word is key and num letters is value
-    return []
+    for word in words:
+        # get number of letters in word
+        word_len = len(word)
+        # word length is the key and a list of words with that length is the value
+        # key already exists, append value to list
+        if word_len in lengths:
+            lengths[word_len].append(word)
+        # key doesn't exist, so make it and value of list with current word
+        else:
+            lengths[word_len] = [word]
+
+    return lengths
 
 
 def get_sum_zero_pairs(numbers):
