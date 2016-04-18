@@ -8,7 +8,7 @@ class Student(object):
 
 class Question(object):
 
-    def __init___(self, question, correct_answer):
+    def __init__(self, question, correct_answer):
         self.question = question
         self.correct_answer = correct_answer
 
