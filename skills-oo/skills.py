@@ -28,7 +28,7 @@ class Exam(object):
 
     def add_question(self, question, correct_answer):
         question = Question(question, correct_answer)
-        questions.append(question)
+        self.question.append(question)
 
     def administer(self):
         # keep track of score
@@ -57,6 +57,6 @@ def example():
     katie = Student('Katie', 'Simmons', '419 Thornton')
     # administers test to that student
     take_test(new_exam, katie)
-    print katie.score
+    print str(katie.score)
 
 example()
