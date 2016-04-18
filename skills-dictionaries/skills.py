@@ -317,6 +317,7 @@ def kids_game(names):
     cur_word = first_word
     if cur_word[-1] in first_letter_words:
         words.append(first_letter_words[cur_word[-1]])
+        # somehow move to next word and repeat until there are no more words with the appropriate letter
     # if no other words starting with that letter, return word list
     else:
         return words
